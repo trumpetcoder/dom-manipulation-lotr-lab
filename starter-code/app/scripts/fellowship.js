@@ -24,23 +24,38 @@ var body = document.querySelector('body');
 
 
 function makeMiddleEarth() {
-  // create a section tag //with an id of middle-earth
+  //console.log('hey');
+  // create a section tag with an id of middle-earth
   // inside, add each land as an article tag
   // inside each article tag include an h1 with the name of the land
   // append middle-earth to your document body
-  //console.log('hey');
-  var middleEarth = document.createElement('section'); //create a section tag
-  //console.log(middleEarth);
-  middleEarth.setAttribute('id', 'middle-earth'); //give section tag an id of middle-earth
-  //console.log(middleEarth);
-    for (var i = 0; i < lands.length; i++) { //iterate through the lands array
-      var newLand = document.createElement('article');//adding them as an article tag
-      var newHeading = document.createElement('h1');//include an h1 inside the article
-      newHeading.innerHTML = lands[i];//adding the name of the land
+  
+  // create a section tag
+  var middleEarth = document.createElement('section'); 
+  console.log(middleEarth);
+ 
+  //with an id of middle-earth
+  middleEarth.setAttribute('id', 'middle-earth'); 
+  console.log(middleEarth);
+   
+   //iterate through the lands array
+    for (var i = 0; i < lands.length; i++) {
+      
+      // inside, add each land as an article tag
+      var newLand = document.createElement('article'); 
+      
+      // inside each article tag include an h1
+      var newHeading = document.createElement('h1');
+
+      //with the name of the land
+      newHeading.innerHTML = lands[i];
+
+      // append middle-earth to your document body
       newLand.appendChild(newHeading);//appending the h1
       middleEarth.appendChild(newLand);//appending the article
     }
-    console.log(middleEarth);
+      //console.log(middleEarth);
+    
     body.appendChild(middleEarth);//append middle-earth to your document body
 
 }
@@ -50,21 +65,42 @@ makeMiddleEarth();
 
 
 // Part 2
-
-function makeHobbits() {
+   function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
-  // give each hobbit a class of hobbit
-  var shireHobbits = document.createElement('ul');//creating a variable shireHobbits in a ul
-  console.log(shireHobbits);
-  shireHobbits.setAttribute('class', 'hobbit');
-  console.log(hobbits);
-    for (var i = 0; i < hobbits.length; i++); {
-      shireHobbits.innerHTML = hobbits[i];
-    }
+  // give each hobbit a class of hobbit  
   
+  //Create an unordered list
+  var unorderedList = document.createElement('ul');
+
+  //in the shire
+  var shire = document.querySelector('article');
+
+  //pull the items for list 
+  for (var i = 0; i < hobbits.length; i++) {
+
+    //create the individual li's
+    var listItem = document.createElement('li');
+
+    //give each li (hobbit) a class = 'hobbit'
+    listItem.setAttribute('class', 'hobbit');
+    
+
+    //add each hobbit into the li's by looping through the array
+    listItem.innerHTML = hobbits[i];
+    console.log(listItem);
+
+    // unorderedList.appendChild(shire);
+
+    // shire.appendChild(unorderedList);
+}
+//     
+    // body.appendChild(shire);
+
 }
 
 makeHobbits();
+
+
 
 // Part 3
 
@@ -73,10 +109,22 @@ function keepItSecretKeepItSafe() {
   // give the div a class of 'magic-imbued-jewelry'
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
   // add the ring as a child of Frodo
-  var secretKeepItSafe = document.createElement('div');//create a div
-  console.log(secretKeepItSafe);
-  secretKeepItSafe.setAttribute('id', 'the-ring');//with an id of 'the-ring'
-  secretKeepItSafe.setAttribute('class', 'magic-imbued-jewelry');//// give the div a class of 'magic-imbued-jewelry'
+  
+
+  //create a div
+  var ring = document.createElement('div');
+  console.log(ring);
+  
+  //with an id of 'the-ring'
+  ring.setAttribute('id', 'the-ring');
+
+  //// give the div a class of 'magic-imbued-jewelry'
+  ring.setAttribute('class', 'magic-imbued-jewelry');
+
+  //add an event listener on the ring
+  ring.addEventListener('click', function() {
+    document.getElementById("nazgul-screech").play();
+  }); 
 }
 
 keepItSecretKeepItSafe();
@@ -89,6 +137,8 @@ function makeBuddies() {
   // create an aside tag
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
+  
+  //create an aside tag
   var buddies = document.createElement('aside');
 }
 
